@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Home: SHADAI {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    {% block body %} {% endblock %}
+    <script>
+        // Script pour desactiver le bouton de soumissiond'un formulaire jusqu'a la fin de celle-ci
+        document.addEventListener('DOMContentLoaded', function () {
+            // Sélectionne tous les formulaires dont l'id commence par "submit_form"
+            const forms = document.querySelectorAll('form[id^="submit_form"]');
+            forms.forEach(function (form) {
+                // Trouve le bouton associé à ce formulaire
+                const button = form.querySelector('[id^="submit_button"]');
+                if (button) {
+                form.addEventListener('submit', function () {
+                    // Désactiver le bouton
+                    button.disabled = true;
+                    // Changer le texte pour indiquer qu'on attend
+                    button.textContent = 'Veuillez patienter...';
+                    // Change le style (grisé)
+                    button.classList.add('disabled');
+                });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

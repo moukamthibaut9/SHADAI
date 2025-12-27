@@ -1,0 +1,9 @@
+all_static
+docs
+TEMP_FILES
+*.sql
+*.sqlite3
+.env
+.venv
+
+.Dockerfile

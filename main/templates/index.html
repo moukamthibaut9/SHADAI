@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block body %}
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="{% url 'home' %}" class="logo">
+            <i class="fas fa-shield-halved"></i> SHAD<span>AI</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<header id="home" class="hero">
+    <div class="hero-content">
+        <h1>L'Invisible devient <span class="highlight">Visible</span></h1>
+        <p>
+            Sécurisez vos communications et détectez les Deepfakes grâce à la puissance 
+            des courbes elliptiques et du Deep Learning.
+        </p>
+        <a href="{% url 'services' %}" class="btn">Découvrir nos outils</a>
+    </div>
+</header>
+
+<section id="about" class="section">
+    <div class="container">
+        <h2 class="section-title">Qui sommes-nous ?</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>
+                    Nous sommes une équipe passionnée par la cybersécurité et l'intelligence 
+                    artificielle. <strong>SHADAI</strong> est né de la volonté de protéger 
+                    l'intégrité des médias numériques à une époque où la manipulation des images 
+                    devient indétectable à l'œil nu.
+                </p>
+            </div>
+            <div class="about-stats">
+                <div class="stat"><span>ECC</span> Cryptographie Forte</div>
+                <div class="stat"><span>AI</span> Détection Deepfake</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="services" class="section bg-light">
+    <div class="container">
+        <h2 class="section-title">Nos Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-key"></i>
+                <h3>Génération de paire de clés cryptographiques ECC</h3>
+                <p>
+                    Grace à cet outil, vous pouvez générer facilement et rapidement des paires 
+                    publique/privée de clés cryptographiques que vous pourriez par la suite utiliser 
+                    à différentes comme pour une communication confidentielle par exemple.
+                </p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-exchange-alt"></i>
+                <h3>Détermination de la clé sécrète symétrique ECC après un échange de clés publiques</h3>
+                <p>
+                    A partir de votre clé privée et de la clé publique d'un autre, calculez facilement et 
+                    rapidement la clé sécrète commune à vous deux afin de l'utiliser pour vos futurs 
+                    échanges pour plus d'efficacité.
+                </p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-lock"></i>
+                <h3>Stéganographie ECC</h3>
+                <p>
+                    Cachez vos données sensibles dans une image 
+                    avec un chiffrement par courbes elliptiques ultra-rapide.
+                </p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-eye"></i>
+                <h3>Analyse Forensique</h3>
+                <p>
+                    Détectez la présence de messages cachés (stéganalyse) grâce à nos 
+                    modèles de Deep Learning avancés.
+                </p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-user-secret"></i>
+                <h3>Anti-Deepfake</h3>
+                <p>
+                    Vérifiez l'authenticité de vos images et protégez-vous 
+                    contre l'usurpation d'identité numérique.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="contact-section">
+    <div class="container">
+        <h2 class="section-title">Nous Contacter</h2>
+        <form id="submit_form" method="post" action="{% url 'contact' %}" class="contact-form animate-on-scroll">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="text" placeholder="Votre nom" name="name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" placeholder="Votre adresse e-mail" name="email" required>
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="Sujet de votre message" name="subject" required>
+            </div>
+            <div class="form-group">
+                <textarea placeholder="Entrer ici votre message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" id="submit_button" class="btn btn-primary">Envoyer le Message</button>
+        </form>
+    </div>
+    {% if messages %}
+            <div class="alert info">
+            {% for m in messages %}
+                {{ m }}
+            {% endfor %}
+        </div>
+    {% endif %}
+</section>
+{% endblock %}
