@@ -17,7 +17,7 @@ Il s'agit ici d'une application web alimentée par l'IA qui offre trois principa
 * Ouvrez l'invite de commandes et naviguer jusqu'à la racine du dossier projet
 * Il faut au préalable avoir python 3.12 minimun installé sur sa machine. Si c'est le cas, créer un environnement virtuel pour le projet et activer l'environnement:  
     python -m venv .venv  
-    .\.venv\Scripts\activate.bat (Sur Windows) | ./.venv/bin/activate (Sur Linux)
+    .venv\Scripts\activate.bat (Sur Windows) | .venv/bin/activate (Sur Linux)
 * Installer les paquets necessaires:  
     pip install -r requirements.txt
 * Créer un fichier '.env' à la racine du projet avec le contenu suivant:  
